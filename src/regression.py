@@ -79,11 +79,14 @@ def train_svr(X_train, y_train):
     model.fit(X_train, y_train)
     return model
 
+import numpy as np
+
 def evaluate_model(model, X_test, y_test):
     """
     Evaluate the model using RMSE and R-squared.
     """
     y_pred = model.predict(X_test)
-    rmse = mean_squared_error(y_test, y_pred, squared=False)
+    mse = mean_squared_error(y_test, y_pred)
+    rmse = np.sqrt(mse)
     r2 = r2_score(y_test, y_pred)
     return rmse, r2

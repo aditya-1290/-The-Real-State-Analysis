@@ -1,15 +1,22 @@
+import sys
+sys.path.append('..')
 import pandas as pd
+import numpy as np
 from sklearn.model_selection import train_test_split
+from sklearn.impute import SimpleImputer
+import joblib
 from src import regression
 
-# Load processed data (assuming from previous notebook)
-# df_processed = pd.read_csv('../data/processed/processed_data.csv')
-# X = df_processed.drop('SalePrice', axis=1)
-# y = df_processed['SalePrice']
+# Load raw data
+df = pd.read_csv('../data/raw/train.csv')
 
-# For demonstration, using sample data
-from sklearn.datasets import make_regression
-X, y = make_regression(n_samples=1000, n_features=10, noise=0.1, random_state=42)
+# Prepare features and target
+X = df.drop('SalePrice', axis=1).select_dtypes(include=[np.number])
+y = df['SalePrice']
+
+# Handle missing values
+imputer = SimpleImputer(strategy='mean')
+X = imputer.fit_transform(X)
 
 # Split data
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -27,6 +34,10 @@ models = {
     'SVR': regression.train_svr(X_train, y_train)
 }
 
+# Save models
+for name, model in models.items():
+    joblib.dump(model, f'../models/{name.replace(" ", "_")}.pkl')
+
 # Evaluate models
 results = {}
 for name, model in models.items():
@@ -37,3 +48,6 @@ for name, model in models.items():
 # Compare results
 results_df = pd.DataFrame(results).T
 print(results_df)
+
+# Save results
+results_df.to_csv('../reports/model_results.csv')
