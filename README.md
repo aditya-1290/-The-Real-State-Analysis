@@ -18,7 +18,7 @@ A suitable dataset is crucial. The best choice would be a combination of data fr
 - Ordinal Features: Condition rating, quality rating.
 - Text Data: Property description.
 - Dates: Listing date, sale date.
-create a folder 'data' in the project directory and in that folder create sub folder 'raw' and put the different data files in the raw folder.
+Create a folder 'data' in the project directory and in that folder create sub folder 'raw' and put the different data files in the raw folder.
 Please use this dataset as I have used this for my models training: https://www.kaggle.com/datasets/rishitaverma02/house-prices-advanced-regression-techniques 
 
 ## Machine Learning Algorithms, Their Uses, and Implementation
