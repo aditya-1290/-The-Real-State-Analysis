@@ -19,6 +19,8 @@ A suitable dataset is crucial. The best choice would be a combination of data fr
 - Text Data: Property description.
 - Dates: Listing date, sale date.
 
+Please use this dataset as I have used this for my models training: https://www.kaggle.com/datasets/rishitaverma02/house-prices-advanced-regression-techniques 
+
 ## Machine Learning Algorithms, Their Uses, and Implementation
 
 ### Phase 1: Data Preprocessing & Exploration
