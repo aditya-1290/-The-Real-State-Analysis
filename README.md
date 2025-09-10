@@ -1,7 +1,6 @@
 # The Omni-Analyst: A Comprehensive Machine Learning Suite for Real Estate Valuation and Market Analysis
 
 ## Project Description & Objective
- we
 The goal of this project is to build a modular Python application that ingests a rich dataset of property listings and uses a wide array of machine learning algorithms to solve different problems within the domain. The objective is not to create one single "best" model, but to demonstrate proficiency in selecting, implementing, and evaluating the right tool for the job across the entire ML spectrum.
 
 **Core Value Proposition:** A real estate agent, investor, or homeowner could use this suite to:
